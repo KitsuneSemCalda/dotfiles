@@ -59,4 +59,5 @@ Any issue can be fixed with `shift + k` (pick) and `ctrl + j` (diagnostic)
     - None-ls
     - dot
     - mini-hipatterns
+    - mini-animate
     - refactoring
