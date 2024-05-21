@@ -32,6 +32,9 @@ createDotfiles() {
 	fi
 	printf "%s\n" "copying values of ../wsl from $HOME/.config/myDotfiles"
 	cp -r "../wsl/zsh/" "$HOME/.config/myDotfiles"
+	if [ -d "$HOME/.config/nvim" ]; then
+		mv "$HOME/.config/nvim/" "$HOME/.config/nvim.bak"
+	fi
 	cp -r "../wsl/nvim/" "$HOME/.config/nvim"
 	ln -sf "$HOME/.config/myDotfiles/zsh/zshrc" "$HOME/.zshrc"
 	ln -sf "$HOME/.config/myDotfiles/zsh/aliasrc" "$HOME/.aliasrc"
