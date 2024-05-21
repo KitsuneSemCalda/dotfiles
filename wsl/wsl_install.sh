@@ -3,13 +3,18 @@
 program_install_list=(
 	"fastfetch"
 	"zsh"
+	"exa"
+	"duf"
+	"fzf"
 	"vhs"
 	"asdf"
 	"git"
 	"curl"
+	"bat"
 )
 
 asdf_install_list=(
+	"rust"
 	"neovim"
 	"golang"
 	"erlang"
@@ -18,24 +23,32 @@ asdf_install_list=(
 	"hugo"
 )
 
+ifExistsDelete() {
+	if [ -d "$1" ] || [ -f "$1" ]; then
+		printf "%s exists delete him\n" "$1"
+		rm -rf "$1"
+	fi
+}
+
+ifExistsCreateBackup() {
+	if [ -d "$1" ] || [ -f "$1" ]; then
+		printf "%s exists create a backup\n" "$1"
+		mv "$1" "$1.bak"
+	fi
+}
+
 # Function to move dotfiles
-createDotfiles() {
-	if [ ! -d "$HOME/.config/myDotfiles/" ]; then
-		printf "%s\n" "$HOME/.config/myDotfiles/ not found, create the directory"
-		mkdir -p "$HOME/.config/myDotfiles"
-	else
-		printf "%s\n" "$HOME/.config/myDotfiles/ founded, delete him and recreate with updates"
-		rm -rf "$HOME/.config/myDotfiles/"
-		rm "$HOME/.zshrc"
-		rm "$HOME/.aliasrc"
-		mkdir -p "$HOME/.config/myDotfiles"
-	fi
+CreateDotfiles() {
+	ifExistsDelete "$HOME/.config/myDotfiles/"
+	ifExistsDelete "$HOME/.config/nvim.bak/"
+	ifExistsCreateBackup "$HOME/.config/nvim"
+
 	printf "%s\n" "copying values of ../wsl from $HOME/.config/myDotfiles"
+
+	mkdir -p "$HOME/.config/myDotfiles/"
 	cp -r "../wsl/zsh/" "$HOME/.config/myDotfiles"
-	if [ -d "$HOME/.config/nvim" ]; then
-		mv "$HOME/.config/nvim/" "$HOME/.config/nvim.bak"
-	fi
 	cp -r "../wsl/nvim/" "$HOME/.config/nvim"
+
 	ln -sf "$HOME/.config/myDotfiles/zsh/zshrc" "$HOME/.zshrc"
 	ln -sf "$HOME/.config/myDotfiles/zsh/aliasrc" "$HOME/.aliasrc"
 }
@@ -87,8 +100,6 @@ install_program() {
 		printf "the program %s is not found install him\n" "$program"
 		yay -S --noconfirm "$program" >/dev/null 2>&1
 	fi
-
-	yay -S --noconfirm "base-devel" >/dev/null 2>&1
 }
 
 # Function to install all programs in program_install_list
@@ -97,13 +108,16 @@ RunInstall() {
 		printf "Install the app %s\n" "$name"
 		install_program "$name"
 	done
+
+	printf "Install the app %s\n" "base-devel"
+	sudo pacman -S --noconfirm "base-devel"
 }
 
 # Unify all function to get plugin, install latest and set global
 RunAsdf() {
 	adding_asdf_plugin
-	install_asdf_plugin >/dev/null 2>&1
-	set_global_asdf_plugin >/dev/null 2>&1
+	install_asdf_plugin
+	set_global_asdf_plugin
 }
 
 # Function to check if has yay and install him
@@ -129,16 +143,16 @@ start() {
 	fi
 
 	CheckInstaller
-	createDotfiles
 	RunInstall
-	RunAsdf
+	RunAsdf >/dev/null 2>&1
 
 	if [ ! "$SHELL" == "/bin/zsh" ]; then
 		printf "The default shell isn't zsh but the %s instead\n" "$SHELL"
 		chsh -s /bin/zsh
 	fi
 
-	printf "WSL installed with sucess"
+	CreateDotfiles
+	printf "WSL installed with sucess\n"
 }
 
 start
