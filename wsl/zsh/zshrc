@@ -4,6 +4,7 @@
 #
 
 export PATH=$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.yarn/bin/:$PATH
+export LD_LIBRARY_PATH="/usr/lib:/usr/lib32:/usr/lib64/:/lib/:/lib64/:$LD_LIBRARY_PATH"
 
 function ifNotExistsCreate {
   dir=$1
@@ -30,9 +31,9 @@ function createFolder {
 
 function loadPlugins {
 # Load the powerlevel10k theme
-  ifExistsLoad "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+  ifExistsLoad "/usr/share/zsh/plugins/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
 # Load the zsh-autosuggestions
-  ifExistsLoad "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  ifExistsLoad "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # Load the zsh syntax highlight
   ifExistsLoad "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # Load the zsh completion 
