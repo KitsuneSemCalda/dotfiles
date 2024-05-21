@@ -13,6 +13,7 @@ asdf_install_list=(
 	"neovim"
 	"golang"
 	"erlang"
+	"elixir"
 	"nodejs"
 	"hugo"
 )
