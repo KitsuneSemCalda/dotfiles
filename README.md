@@ -11,4 +11,18 @@ In [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) my costumes 
 ### Todo:
 
 - [ ] Turn my ZSH Lazy from auto install in ArchWSL enviroment
-- [ ] Create a install script from install the config correctly
+- [x] Create a install script from install the config correctly:
+  - Apps Installed:
+    - [Asdf](https://asdf-vm.com/)
+    - [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
+    - [VHS](https://github.com/charmbracelet/vhs)
+    - [Zsh](https://www.zsh.org/)
+    - [Git](https://git-scm.com/)
+    - [Curl](https://curl.se/)
+  - Asdf Plugins:
+    - [Go](https://github.com/asdf-community/asdf-golang)
+    - [Neovim](https://github.com/richin13/asdf-neovim)
+    - [Erlang](https://github.com/asdf-vm/asdf-erlang)
+    - [Elixir](https://github.com/asdf-vm/asdf-elixir)
+    - [Nodejs](https://github.com/asdf-vm/asdf-nodejs)
+    - [Hugo](https://github.com/nklmilojevic/asdf-hugo)
