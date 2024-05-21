@@ -11,6 +11,7 @@ In [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) my costumes 
 ### Todo:
 
 - [ ] Turn my ZSH Lazy from auto install in ArchWSL enviroment
+
 - [x] Create a install script from install the config correctly:
   - Apps Installed:
     - [Asdf](https://asdf-vm.com/)
@@ -19,7 +20,12 @@ In [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) my costumes 
     - [Zsh](https://www.zsh.org/)
     - [Git](https://git-scm.com/)
     - [Curl](https://curl.se/)
+    - [Fzf](https://github.com/junegunn/fzf)
+    - [Exa](https://github.com/ogham/exa)
+    - [Duf](https://github.com/muesli/duf)
+    - [Bat](https://github.com/sharkdp/bat)
   - Asdf Plugins:
+    - [Rust](https://github.com/code-lever/asdf-rust)
     - [Go](https://github.com/asdf-community/asdf-golang)
     - [Neovim](https://github.com/richin13/asdf-neovim)
     - [Erlang](https://github.com/asdf-vm/asdf-erlang)
