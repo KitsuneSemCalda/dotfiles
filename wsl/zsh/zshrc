@@ -1,0 +1,61 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+#
+
+export PATH=$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.yarn/bin/:$PATH
+
+function ifNotExistsCreate {
+  dir=$1
+
+  if [ ! -d $dir ]; then 
+    mkdir -p "$dir"
+  fi 
+}
+
+function ifExistsLoad {
+  file=$1
+
+  if [ -f $file ]; then 
+    . "$file"
+  fi
+}
+
+function createFolder {
+# Create a temporary learning directory in tmp/ from directory about repositories privated 
+  ifNotExistsCreate "/tmp/learning" 
+# Create a directory project if not exists or change from her
+  ifNotExistsCreate "$HOME/Project"
+}
+
+function loadPlugins {
+# Load the powerlevel10k theme
+  ifExistsLoad "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+# Load the zsh-autosuggestions
+  ifExistsLoad "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# Load the zsh syntax highlight
+  ifExistsLoad "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# Load the zsh completion 
+  ifExistsLoad "/usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh"
+# Load the .aliasrc
+  ifExistsLoad "$HOME/.aliasrc"
+# Load the asdf 
+  ifExistsLoad "/opt/asdf-vm/asdf.sh"
+}
+
+function start() {
+  # Load the cache about powerlevel10k with my configure 
+  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    . "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+  createFolder
+  loadPlugins
+}
+  
+
+start
