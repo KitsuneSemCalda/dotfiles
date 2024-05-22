@@ -45,7 +45,7 @@ function ifNotExistsCreateRoot {
 function ifExistsLoad {
   file=$1
 
-  if [ -f $file ]; then 
+  if [ -e $file ]; then 
     . "$file"
   fi
 }
