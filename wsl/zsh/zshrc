@@ -3,6 +3,7 @@
 # confirmations, etc.) must go above this block; everything else may go below.
 #
 
+export PULSE_SERVER=/mnt/wslg/PulseServer
 export PATH=$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.yarn/bin/:$PATH
 export LD_LIBRARY_PATH="/usr/lib:/usr/lib32:/usr/lib64/:/lib/:/lib64/:$LD_LIBRARY_PATH"
 
