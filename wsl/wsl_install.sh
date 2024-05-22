@@ -23,6 +23,15 @@ asdf_install_list=(
 	"hugo"
 )
 
+ifExistsCopy() {
+	src=$1
+	dest=$2
+
+	if [ -e "$dest" ]; then
+		cp -r "$src" "$dest"
+	fi
+}
+
 ifExistsDelete() {
 	if [ -e "$1" ]; then
 		printf "%s exists delete him\n" "$1"
@@ -135,6 +144,15 @@ CheckInstaller() {
 	printf "Everything is OK, continue the install\n"
 }
 
+AddingServices() {
+	if [ -e "/etc/systemd/system/x11-symlink.service" ]; then
+		ifExistsDelete "/etc/systemd/system/x11-symlink.service"
+		ifExistsCopy "./services/x11-symlink.service" "/etc/systemd/system/x11-symlink.service"
+		sudo systemctl enable x11-symlink
+		sudo systemctl start x11-symlink
+	fi
+}
+
 start() {
 	# Check if we run the command in WSL
 	if [ ! "$WSL_DISTRO_NAME" == "Arch" ]; then
@@ -142,7 +160,10 @@ start() {
 		exit 1
 	fi
 
+	# Enable the service to fix bug in WSLg
+
 	CheckInstaller
+	AddingServices
 	RunInstall
 	RunAsdf >/dev/null 2>&1
 
