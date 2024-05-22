@@ -24,14 +24,14 @@ asdf_install_list=(
 )
 
 ifExistsDelete() {
-	if [ -d "$1" ] || [ -f "$1" ]; then
+	if [ -e "$1" ]; then
 		printf "%s exists delete him\n" "$1"
 		rm -rf "$1"
 	fi
 }
 
 ifExistsCreateBackup() {
-	if [ -d "$1" ] || [ -f "$1" ]; then
+	if [ -e "$1" ]; then
 		printf "%s exists create a backup\n" "$1"
 		mv "$1" "$1.bak"
 	fi
