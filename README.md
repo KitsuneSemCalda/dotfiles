@@ -12,6 +12,10 @@ In [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) my costumes 
 
 - [x] Turn my ZSH Lazy from auto install in ArchWSL enviroment
 
+- [x] Adding some services from WSL
+
+  - [x] Fix WSLg bug using a systemd service
+
 - [x] Create a install script from install the config correctly:
   - Apps Installed:
     - [Asdf](https://asdf-vm.com/)
