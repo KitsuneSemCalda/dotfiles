@@ -2,6 +2,7 @@
 
 program_install_list=(
 	"fastfetch"
+	"podman"
 	"zsh"
 	"exa"
 	"duf"
