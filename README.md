@@ -18,6 +18,8 @@ In [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) my costumes 
 
 - [x] Create a install script from install the config correctly:
   - Apps Installed:
+    - [Podman](https://podman.io/)
+    - [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
     - [Asdf](https://asdf-vm.com/)
     - [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
     - [VHS](https://github.com/charmbracelet/vhs)
