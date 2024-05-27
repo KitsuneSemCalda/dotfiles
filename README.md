@@ -8,6 +8,9 @@ In [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) my costumes 
 - Editor: [Neovim](https://neovim.io/) with lazy configuration
 - Languages: [Go lang](<https://en.wikipedia.org/wiki/Go_(programming_language)>) and [Typescript](https://en.wikipedia.org/wiki/TypeScript)
 
+> [!WARNING]
+> The nvim config works only in version < 0.10.0 because the lsp api is updated in new version
+
 ### Todo:
 
 - [x] Turn my ZSH Lazy from auto install in ArchWSL enviroment
