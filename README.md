@@ -1,5 +1,11 @@
 # My Personal Dotfiles
 
+## === Ubuntu ===
+
+In [Ubuntu](https://ubuntu.com/download) or another debian based distro.
+
+I have a new ideas from my setup, because i want build a hybrid notebook/desktop with GPU to gaming.
+
 ## === [Arch WSL](https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/) ===
 
 In [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) my costumes are:
@@ -10,34 +16,3 @@ In [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) my costumes 
 
 > [!WARNING]
 > The nvim config works only in version < 0.10.0 because the lsp api is updated in new version
-
-### Todo:
-
-- [x] Turn my ZSH Lazy from auto install in ArchWSL enviroment
-
-- [x] Adding some services from WSL
-
-  - [x] Fix WSLg bug using a systemd service
-
-- [x] Create a install script from install the config correctly:
-  - Apps Installed:
-    - [Podman](https://podman.io/)
-    - [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
-    - [Asdf](https://asdf-vm.com/)
-    - [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
-    - [VHS](https://github.com/charmbracelet/vhs)
-    - [Zsh](https://www.zsh.org/)
-    - [Git](https://git-scm.com/)
-    - [Curl](https://curl.se/)
-    - [Fzf](https://github.com/junegunn/fzf)
-    - [Exa](https://github.com/ogham/exa)
-    - [Duf](https://github.com/muesli/duf)
-    - [Bat](https://github.com/sharkdp/bat)
-  - Asdf Plugins:
-    - [Rust](https://github.com/code-lever/asdf-rust)
-    - [Go](https://github.com/asdf-community/asdf-golang)
-    - [Neovim](https://github.com/richin13/asdf-neovim)
-    - [Erlang](https://github.com/asdf-vm/asdf-erlang)
-    - [Elixir](https://github.com/asdf-vm/asdf-elixir)
-    - [Nodejs](https://github.com/asdf-vm/asdf-nodejs)
-    - [Hugo](https://github.com/nklmilojevic/asdf-hugo)
