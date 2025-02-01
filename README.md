@@ -1,10 +1,14 @@
 # My Personal Dotfiles
 
-## === Ubuntu ===
+## === Script ===
 
-In [Ubuntu](https://ubuntu.com/download) or another debian based distro.
+### Backup Script
 
-I have a new ideas from my setup, because i want build a hybrid notebook/desktop with GPU to gaming.
+Some scripts to be used in my system:
+
+1. Compress Security Backup to be used locally in ventoy
+2. Compress $HOME/Imagens/ and $HOME/Documentos to be sended from Dropbox
+3. Compress obsidian vault and send to Dropbox
 
 ## === [Arch WSL](https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/) ===
 
