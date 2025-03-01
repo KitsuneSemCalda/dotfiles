@@ -78,8 +78,8 @@ function loadPlugins {
   ifExistsLoad "/usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh"
 # Load the .aliasrc
   ifExistsLoad "$HOME/.aliasrc"
-# Load the asdf 
-  ifExistsLoad "/opt/asdf-vm/asdf.sh"
+# Load the mise
+  eval "$(~/.local/bin/mise activate zsh)"
 }
 
 function start() {
