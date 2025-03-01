@@ -22,6 +22,8 @@ common_apps=(
 	"libmemcached"
 	"podman"
 	"podman-docker"
+	"openssl"
+	"libyaml"
 	"tmux"
 	"exa"
 	"bat"
@@ -77,14 +79,38 @@ moveDotfiles() {
 		cp -r "$HOME/.config/nvim/" "$HOME/.config/nvim.bak"
 	fi
 	cp -r "./nvim/" "$HOME/.config/nvim/"
-	if [ ! -e "$HOME/.zshrc" ]; then
+	if [ ! -f "$HOME/.zshrc" ]; then
 		cp -r "./zsh/zshrc" "$HOME/.zshrc"
 	fi
-	if [ ! -e "$HOME/.aliasrc" ]; then
+	if [ ! -f "$HOME/.aliasrc" ]; then
 		cp -r "./zsh/aliasrc" "$HOME/.aliasrc"
 	fi
+
+	if [ ! -f "$HOME/.p10k.zsh" ]; then
+		cp -r "./zsh/p10k.zsh" "$HOME/.p10k.zsh"
+	fi
+
 	sudo cp "./services/x11-symlink.service" "/etc/systemd/system/"
 	sudo systemctl enable x11-symlink
+}
+
+miseConfig() {
+	if [ ! -f "$HOME/.local/share/mise/shims/go" ]; then
+		mise use --global go@latest
+	fi
+
+	if [ ! -f "$HOME/.local/share/mise/shims/elixir" ]; then
+		mise use --global erlang@latest
+		mise use --global elixir@latest
+	fi
+
+	if [ ! -f "$HOME/.local/share/mise/shims/gem" ]; then
+		mise use --global ruby@latest
+	fi
+
+	if [ ! -f "$HOME/.local/share/mise/shims/node" ]; then
+		mise use --global node@latest
+	fi
 }
 
 init() {
@@ -94,6 +120,7 @@ init() {
 	selectBestMirror
 	configDB
 	moveDotfiles
+	miseConfig
 	log "Setup finalizado com sucesso!"
 }
 
