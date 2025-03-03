@@ -113,6 +113,16 @@ miseConfig() {
 	fi
 }
 
+neovimConfig() {
+	if [ -d "$HOME/.local/share/nvim" ]; then 
+		rm -rf "$HOME/.local/share/nvim"
+	fi
+
+	if [ -d "$HOME/.config/nvim" ]; then 
+		rm -rf "$HOME/.local/share/nvim"
+	fi
+}
+
 init() {
 	log "Iniciando setup do sistema..."
 	install_chaotic_aur
@@ -121,6 +131,7 @@ init() {
 	configDB
 	moveDotfiles
 	miseConfig
+	neovimConfig
 	log "Setup finalizado com sucesso!"
 }
 
