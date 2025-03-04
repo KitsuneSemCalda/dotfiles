@@ -75,10 +75,6 @@ configDB() {
 
 moveDotfiles() {
 	log "Movendo arquivos de configuração..."
-	if [ -e "$HOME/.config/nvim" ]; then
-		cp -r "$HOME/.config/nvim/" "$HOME/.config/nvim.bak"
-	fi
-	cp -r "./nvim/" "$HOME/.config/nvim/"
 	if [ ! -f "$HOME/.zshrc" ]; then
 		cp -r "./zsh/zshrc" "$HOME/.zshrc"
 	fi
@@ -95,6 +91,7 @@ moveDotfiles() {
 }
 
 miseConfig() {
+	log "Configurando Mise"
 	if [ ! -f "$HOME/.local/share/mise/shims/go" ]; then
 		mise use --global go@latest
 	fi
@@ -111,16 +108,28 @@ miseConfig() {
 	if [ ! -f "$HOME/.local/share/mise/shims/node" ]; then
 		mise use --global node@latest
 	fi
+
+	log "Mise configurado com sucesso"
 }
 
 neovimConfig() {
-	if [ -d "$HOME/.local/share/nvim" ]; then 
+	log "Configurando Neovim"
+
+	if [ -d "$HOME/.config/nvim.bak/" ]; then
+		rm -rf "$HOME/.config/nvim.bak"
+	fi
+
+	if [ -d "$HOME/.local/share/nvim" ]; then
 		rm -rf "$HOME/.local/share/nvim"
 	fi
 
-	if [ -d "$HOME/.config/nvim" ]; then 
+	if [ -d "$HOME/.config/nvim" ]; then
 		rm -rf "$HOME/.local/share/nvim"
 	fi
+
+	cp -r "nvim/" "$HOME/.config/nvim/"
+
+	log "Neovim configurado com sucesso"
 }
 
 init() {
