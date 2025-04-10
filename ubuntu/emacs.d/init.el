@@ -1,45 +1,31 @@
-(setq inhibit-startup-message t)
-(setq ring-bell-function 'ignore)
-(setq straight-use-package-by-default t)
-; Disable visual interface
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+;; -*- lexical-binding: t; -*-
 
-; Config Neovim interface
-(global-display-line-numbers-mode t)
-(column-number-mode t)
+;  ===== Minimalist Emacs GTK Interface =====
 
-; Default Encoding
-(prefer-coding-system 'utf-8)
+; Epic Message
+(setq initial-stratch-message ";; Kitsune Emacs | Ready to Coffee")
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name
-        "straight/repos/straight.el/bootstrap.el"
-        (or (bound-and-true-p straight-base-dir)
-            user-emacs-directory)))
-      (bootstrap-version 7))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+; Set the another folders to load config
+(add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
-(load "~/.emacs.d/lisp/packages.el")
+; Enable cua-mode
+(cua-mode t)
 
-
-
+; Require the core config with the principal config of emacs
+(require 'core)
+(require 'packages)
+(require 'dev)
+(require 'editor)
+(require 'ui)
+(require 'acessibility)
+(require 'navigation)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(helm-minibuffer-history-key "M-p")
- '(package-selected-packages '(magit which-key ivy evil-collection)))
+ '(package-selected-packages
+   '(evil-collection evil which-key counsel ivy all-the-icons nerd-icons treesit-auto lsp-ui lsp-mode company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

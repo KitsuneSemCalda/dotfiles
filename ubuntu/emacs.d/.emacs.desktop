@@ -1,0 +1,79 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Thu Apr 10 13:22:23 2025
+;; Desktop file format version 208
+;; Emacs version 29.3
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (26615 61503 596669 24000) (desktop . "208") "kitsune@skynet" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-PfEd-MesloLGLDZ Nerd Font Mono-regular-normal-normal-*-30-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (child-frame-border-width) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "black") (background-color . "white") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tab-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (alpha-background) (no-focus-on-map) (no-accept-focus) (fullscreen) (visibility . t) (use-frame-synchronization) (skip-taskbar) (z-group) (display-type . color) (background-mode . light) (cursor-color . "black") (font-parameter) (sticky) (shaded) (environment) (dnd-root-window-position) (last-focus-update . t) (frameset--id . "915D-CD81-9522-07D2") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (tabs (current-tab (name . "*Compile-Log*") (explicit-name))) (height . 21) (width . 80) (left . 450) (top . 28)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 3) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 188) (min-pixel-width . 180) (min-pixel-height-ignore . 141) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 47) (min-pixel-width-safe . 36)) leaf (pixel-width . 1456) (pixel-height . 940) (total-width . 81) (total-height . 20) (normal-height . 1.0) (normal-width . 1.0) (buffer "*Compile-Log*" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 101775) (start . 101595))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist '((48 . #(".emacs.desktop.lock\n  -rw-rw-r--  1 kitsune kitsune  486 Apr 10 13:13 " 0 19 (fontified nil help-echo "mouse-2: visit this file in other window" mouse-face highlight dired-filename t) 19 20 (fontified nil) 20 21 (fontified t) 21 27 (fontified t invisible dired-hide-details-detail) 27 28 (face dired-perm-write fontified t invisible dired-hide-details-detail) 28 69 (fontified t invisible dired-hide-details-detail) 69 70 (fontified t)))))
+(setq file-name-history '(#("/home/kitsune/.emacs.d/config/ui.el" 0 35 (ivy-index 10)) #("/home/kitsune/.emacs.d/config/dev.el" 0 36 (ivy-index 0)) "~/.emacs.d" "~/.emacs.d/config/editor.el" "~/.emacs.d/init.el"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/kitsune/.emacs.d/config/ui.el"
+  "ui.el"
+  'emacs-lisp-mode
+  '(evil-collection-unimpaired-mode evil-local-mode display-line-numbers-mode eldoc-mode font-lock-mode company-mode)
+  207
+  '(33 nil)
+  nil
+  nil
+  '((buffer-display-time 26615 61502 298536 83000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (114 208 208))))
+
+(desktop-create-buffer 208
+  "/home/kitsune/.emacs.d/config/editor.el"
+  "editor.el"
+  'emacs-lisp-mode
+  '(eldoc-mode font-lock-mode display-line-numbers-mode evil-local-mode evil-collection-unimpaired-mode company-mode)
+  260
+  '(260 nil)
+  nil
+  nil
+  '((buffer-display-time 26615 61454 784089 724000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/kitsune/.emacs.d/config/dev.el"
+  "dev.el"
+  'emacs-lisp-mode
+  '(evil-collection-unimpaired-mode evil-local-mode display-line-numbers-mode eldoc-mode font-lock-mode company-mode)
+  505
+  '(505 nil)
+  nil
+  nil
+  '((buffer-display-time 26615 61454 510472 837000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring (1))))
+
+(desktop-create-buffer 208
+  "/home/kitsune/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(eldoc-mode font-lock-mode display-line-numbers-mode evil-local-mode evil-collection-unimpaired-mode company-mode)
+  421
+  '(421 nil)
+  nil
+  nil
+  '((buffer-display-time 26615 61244 390804 32000) (buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  ".emacs.d"
+  'dired-mode
+  '(font-lock-mode display-line-numbers-mode evil-local-mode evil-collection-unimpaired-mode company-mode)
+  427
+  '(427 nil)
+  t
+  '("/home/kitsune/.emacs.d/")
+  '((buffer-display-time 26615 61454 545622 749000) (overwrite-mode))
+  '((mark-ring (427))))
+
