@@ -4,6 +4,13 @@
 
 (setq initial-scratch-message ";; Kitsune Emacs | Ready to Coffee")
 
+; Set backup as hidden folder
+(setq backup-directory-alist `(("." .,(expand-file-name "backup" user-emacs-directory))))
+
+(setq backup-by-copying t)
+(setq version-control t)
+(setq delete-old-versions t)
+
 ; Set directory config to load path
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
@@ -13,6 +20,8 @@
 ;; Silence startup
 (setq inhibit-startup-message t)
 
+;; Silence warning
+(setq warning-minimum-level :error)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
