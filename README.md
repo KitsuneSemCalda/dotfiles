@@ -24,6 +24,3 @@ In Ubuntu my costumes are:
 
 - Install Omakub by default: [Omakub](https://omakub.org)
 - Editor: Emacs
-
-> [!WARNING]
-> The nvim config works only in version < 0.10.0 because the lsp api is updated in new version
