@@ -1,0 +1,11 @@
+[Unit]
+Description=Setup X11 Symlink
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sh -c '[ -e /tmp/.X11-unix ] && rm -r /tmp/.X11-unix'
+ExecStartPre=/bin/sh -c '[ "$(mountpoint -q /tmp/.X11-unix && echo $?)" == "0" ] && /bin/umount /tmp/.X11-unix || exit 0'
+ExecStart=/bin/ln -s /mnt/wslg/.X11-unix /tmp/.X11-unix
+
+[Install]
+WantedBy=multi-user.target

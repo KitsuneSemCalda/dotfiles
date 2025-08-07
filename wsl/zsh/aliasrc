@@ -1,0 +1,17 @@
+alias cat="bat --color=auto"
+alias vim="nvim"
+alias v="/usr/bin/vim"
+alias g="git"
+
+alias projeto="cd $HOME/Project/"
+alias blog="cd $HOME/FoxTechWorld"
+alias learning="cd /tmp/learning"
+
+alias cz="cz -n"
+alias diff="delta"
+alias fzf="fzf --border sharp --margin 10% --padding 5% --info inline --prompt 'SEARCH: ' --pointer '**' --ansi --color 'bg+:-1,pointer:green,fg+:green,hl:yellow,border:gray'"
+alias ls="exa --icons --color=auto"
+alias ll="exa --icons --color=auto"
+alias la="exa -la --icons --color=auto"
+alias tree="exa --recurse --tree --icons --color=auto"
+alias bathelp='bat --plain --language=help'

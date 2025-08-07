@@ -1,0 +1,100 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+#
+
+export PULSE_SERVER=/mnt/wslg/PulseServer
+export PATH=$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.yarn/bin/:$PATH
+export LD_LIBRARY_PATH="/usr/lib:/usr/lib32:/usr/lib64/:/lib/:/lib64/:$LD_LIBRARY_PATH"
+
+function clonePluginWithDepth {
+  dir=$2
+  url=$1
+
+  if [ ! -d "$dir" ]; then 
+    printf "This plugin %s already installed %s \n" "$url" "$dir"
+    sudo git clone --depth 1 $1 $2
+  fi
+}
+
+function clonePlugin {
+  dir=$2
+  url=$1
+
+  if [ ! -d "$dir" ]; then 
+    printf "This plugin %s already installed %s \n" "$url" "$dir"
+    sudo git clone $1 $2
+  fi
+}
+
+function ifNotExistsCreate {
+  dir=$1
+
+  if [ ! -d $dir ]; then 
+    mkdir -p "$dir"
+  fi 
+}
+
+function ifNotExistsCreateRoot {
+  dir=$1 
+  
+  if [ ! -d "$dir" ]; then 
+    sudo mkdir -p "$dir"
+  fi 
+}
+
+function ifExistsLoad {
+  file=$1
+
+  if [ -e $file ]; then 
+    . "$file"
+  fi
+}
+
+function createFolder {
+# Create a temporary learning directory in tmp/ from directory about repositories privated 
+  ifNotExistsCreate "/tmp/learning" 
+# Create a directory project if not exists or change from her
+  ifNotExistsCreate "$HOME/Project"
+}
+
+function installPlugins {
+  ifNotExistsCreateRoot "/usr/share/zsh/plugins/" 
+    
+  clonePluginWithDepth "https://github.com/romkatv/powerlevel10k.git" "/usr/share/zsh/plugins/zsh-theme-powerlevel10k"
+  clonePlugin "https://github.com/zsh-users/zsh-autosuggestions" "/usr/share/zsh/plugins/zsh-autosuggestions/"
+  clonePlugin "https://github.com/zsh-users/zsh-syntax-highlighting" "/usr/share/zsh/plugins/zsh-syntax-highlighting"
+  clonePlugin "https://github.com/zsh-users/zsh-completions" "/usr/share/zsh/plugins/zsh-completions/"
+}
+
+function loadPlugins {
+# Load the powerlevel10k theme
+  ifExistsLoad "/usr/share/zsh/plugins/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+# Load the zsh-autosuggestions
+  ifExistsLoad "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# Load the zsh syntax highlight
+  ifExistsLoad "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# Load the zsh completion 
+  ifExistsLoad "/usr/share/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh"
+# Load the .aliasrc
+  ifExistsLoad "$HOME/.aliasrc"
+# Load the mise
+  eval "$(~/.local/bin/mise activate zsh)"
+}
+
+function start() {
+  # Load the cache about powerlevel10k with my configure 
+  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    . "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
+
+  createFolder
+  installPlugins
+  loadPlugins
+
+  clear
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+}
+  
+start
